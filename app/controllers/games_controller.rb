@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   helper_method :math_stat
 
   def index
-    @games = Game.all
+    @games = Game.all.order('id desc')
   end
 
   def new
