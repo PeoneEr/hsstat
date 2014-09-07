@@ -21,4 +21,11 @@ gem 'uglifier'
 group :development do
   gem 'annotate'
   gem 'spring'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm', github: "capistrano/rvm"
+  gem 'capistrano-deploytags', '~> 1.0.0', require: false, github: 'mydrive/capistrano-deploytags'
+  gem "capistrano-db-tasks", require: false
+  gem 'hirb'
 end
