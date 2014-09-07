@@ -1,0 +1,6 @@
+<%= simple_form_for @game do |f| %>
+  <%= f.input :my_class %>
+  <%= f.input :opp_class %>
+  <%= f.input :result, as: :radio_buttons %>
+  <%= f.submit %>
+<% end %>

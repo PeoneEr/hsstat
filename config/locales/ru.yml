@@ -1,0 +1,28 @@
+ru:
+  enumerize:
+    game:
+      my_class:
+        mage: 'Маг'
+        rogue: 'Разбойник'
+        warrior: 'Воин'
+        druid: 'Друид'
+        warlock: 'Чернокнижник'
+        paladin: 'Паладин'
+        priest: 'Жрец'
+        hunter: 'Охотник'
+        shaman: 'Шаман'
+
+      opp_class:
+        mage: 'Маг'
+        rogue: 'Разбойник'
+        warrior: 'Воин'
+        druid: 'Друид'
+        warlock: 'Чернокнижник'
+        paladin: 'Паладин'
+        priest: 'Жрец'
+        hunter: 'Охотник'
+        shaman: 'Шаман'
+
+      result:
+        win: 'Победа'
+        lose: 'Поражение'

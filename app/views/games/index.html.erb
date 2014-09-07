@@ -1,0 +1,23 @@
+<%= link_to 'New', new_game_path, class: 'btn' %>
+<table>
+  <thead>
+    <th>№</th>
+    <th>Мой класс</th>
+    <th>Класс противника</th>
+    <th>Результат</th>
+    <th>Винрейт</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= game.id %></td>
+        <td><%= game.my_class %></td>
+        <td><%= game.opp_class %></td>
+        <td><%= game.result %></td>
+        <td><%= number_to_percentage(math_stat(game.my_class, game.opp_class)) %></td>
+        <td><%= link_to 'Удалить', game_path(game), method: :delete, data: { confirm: 'Точно удалить?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
