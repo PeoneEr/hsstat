@@ -1,4 +1,13 @@
 ru:
+
+  simple_form:
+    labels:
+      game:
+        my_class: 'Мой класс'
+        opp_class: 'Класс противника'
+        type_of_a_game: 'Тип игры'
+        result: 'Результат'
+
   enumerize:
     game:
       my_class:
@@ -26,3 +35,8 @@ ru:
       result:
         win: 'Победа'
         lose: 'Поражение'
+
+      type_of_a_game:
+        arena: 'Арена'
+        ranked: 'Ранкед'
+        casual: 'Простая'

@@ -18,9 +18,9 @@ class GamesController < ApplicationController
     end
   end
 
-  def math_stat(my_class, opp_class)
-    all_games = Game.where(my_class: my_class, opp_class: opp_class).count
-    win_games = Game.where(my_class: my_class, opp_class: opp_class, result: 'win').count
+  def math_stat(my_class, opp_class, type)
+    all_games = Game.where(my_class: my_class, opp_class: opp_class, type_of_a_game: type).count
+    win_games = Game.where(my_class: my_class, opp_class: opp_class, type_of_a_game: type, result: 'win').count
     (win_games.to_f / all_games.to_f) * 100
   end
 
@@ -32,6 +32,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:my_class, :opp_class, :result)
+    params.require(:game).permit(:my_class, :opp_class, :type_of_a_game, :result)
   end
 end
