@@ -1,4 +1,11 @@
 ru:
+  activemodel:
+    models:
+      game: 'haha'
+    attributes:
+      game:
+        my_class:
+          rogue: 'Разбойник'
 
   simple_form:
     labels:

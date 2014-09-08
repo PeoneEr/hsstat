@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
 group :default do
+  gem 'devise'
   gem 'enumerize'
   gem 'inherited_resources'
   gem 'pg'
   gem 'rails'
-  gem 'simple_form'
   gem 'russian'
+  gem 'simple_form'
 end
 
 gem 'coffee-rails'

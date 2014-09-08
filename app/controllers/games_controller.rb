@@ -1,27 +1,17 @@
 class GamesController < ApplicationController
-  helper_method :math_stat
-
-  def index
-    @games = Game.all.order('id desc')
-  end
+  before_action :authenticate_profile!
 
   def new
     @game = Game.new
   end
 
   def create
-    @game = Game.new(game_params)
+    @game = Game.new(game_params.merge(user_id: current_profile.id))
     if @game.save
-      redirect_to games_path
+      redirect_to profiles_path
     else
       render 'new'
     end
-  end
-
-  def math_stat(my_class, opp_class, type)
-    all_games = Game.where(my_class: my_class, opp_class: opp_class, type_of_a_game: type).count
-    win_games = Game.where(my_class: my_class, opp_class: opp_class, type_of_a_game: type, result: 'win').count
-    (win_games.to_f / all_games.to_f) * 100
   end
 
   def destroy
