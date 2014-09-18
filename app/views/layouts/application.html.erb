@@ -10,6 +10,17 @@
 <body>
 
   <div class="wrapper">
+    <% if profile_signed_in? && @games.present? %>
+      <div class="menu">
+        <ul>
+          <li><%= link_to 'Выход', destroy_profile_session_path, method: :delete, data: { confirm: 'Точно?' } %></li>
+          <li>Общий показатель: <%= percentages(@games.where(result: :win).count, @games.count.to_f) %></li>
+          <li>Поражений: <%= @games.where(result: :lose).count %></li>
+          <li>Побед: <%= @games.where(result: :win).count %></li>
+          <li>Всего игр: <%= @games.count %></li>
+        </ul>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 
