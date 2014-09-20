@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
   def index
     @games = Game.where(user_id: current_profile.id).order('id desc')
     @game = Game.new
+    @unique_classes = Game.uniq.pluck(:my_class)
   end
 
   def math_stat(my_class, opp_class, type)

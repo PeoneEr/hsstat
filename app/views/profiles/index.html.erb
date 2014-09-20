@@ -6,27 +6,19 @@
   <%= f.submit 'Создать' %>
 <% end %>
 
-<table>
-  <thead>
-    <th>Мой класс</th>
-    <th>Класс противника</th>
-    <th>Тип</th>
-    <th>Результат</th>
-    <th>Винрейт</th>
-    <th>Дата</th>
-    <th></th>
-  </thead>
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td><%= t(game.my_class) %></td>
-        <td><%= t(game.opp_class) %></td>
-        <td><%= t(game.type_of_a_game) %></td>
-        <td><%= t(game.result) %></td>
-        <td><%= percentages_for_stat(math_stat(game.my_class, game.opp_class, game.type_of_a_game)) %></td>
-        <td><%= time_ago_in_words(game.created_at) %> назад</td>
-        <td><%= link_to 'Удалить', game_path(game), method: :delete, data: { confirm: 'Точно удалить?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<% @unique_classes.each do |my_class| %>
+  <div class="hero">
+    <div class="hero_title">
+      <%= I18n.t(my_class) %>
+    </div>
+    <div class="info">
+      <ul>
+        <li>Всего игр: <%= Game.where(my_class: "#{my_class}").count %></li>
+        <li>Побед: <%= Game.where(my_class: "#{my_class}", result: :win).count %></li>
+        <li>Поражений: <%= Game.where(my_class: "#{my_class}", result: :lose).count %></li>
+        <li>Показатель: <%= percentages(Game.where(my_class: "#{my_class}", result: :win).count.to_f, Game.where(my_class: "#{my_class}").count.to_f) %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

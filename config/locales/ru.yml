@@ -1,4 +1,15 @@
 ru:
+
+  mage: 'Маг'
+  rogue: 'Разбойник'
+  warrior: 'Воин'
+  druid: 'Друид'
+  warlock: 'Чернокнижник'
+  paladin: 'Паладин'
+  priest: 'Жрец'
+  hunter: 'Охотник'
+  shaman: 'Шаман'
+
   activemodel:
     models:
       game: 'haha'
