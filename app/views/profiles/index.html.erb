@@ -6,6 +6,9 @@
   <%= f.submit 'Создать' %>
 <% end %>
 
+<div class="last_game">
+  Последняя игра:  <%= I18n.t(@last_game.my_class) %> против <%= I18n.t(@last_game.opp_class) %>а, результат: <%= I18n.t(@last_game.result) %>, <%= time_ago_in_words(@last_game.created_at) %> назад
+</div>
 
 <% @unique_classes.each do |my_class| %>
   <div class="hero">

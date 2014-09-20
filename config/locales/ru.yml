@@ -9,6 +9,8 @@ ru:
   priest: 'Жрец'
   hunter: 'Охотник'
   shaman: 'Шаман'
+  win: Победа
+  lose: Поражение
 
   activemodel:
     models:

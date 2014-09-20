@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
     @games = Game.where(user_id: current_profile.id).order('id desc')
     @game = Game.new
     @unique_classes = Game.uniq.pluck(:my_class)
+    @last_game = Game.last
   end
 
   def math_stat(my_class, opp_class, type)
