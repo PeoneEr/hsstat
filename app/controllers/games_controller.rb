@@ -19,7 +19,7 @@ class GamesController < ApplicationController
   end
 
   def my_class
-    @games = Game.where(my_class: params[:my_class], user_id: current_profile.id)
+    @games = Game.where(my_class: params[:my_class], user_id: current_profile.id).order('id desc')
   end
 
   def destroy
