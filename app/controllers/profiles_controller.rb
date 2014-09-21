@@ -6,13 +6,14 @@ class ProfilesController < ApplicationController
   def index
     @games = Game.where(user_id: current_profile.id).order('id desc')
     @game = Game.new
-    @unique_classes = Game.uniq.pluck(:my_class)
-    @last_game = Game.last
+    unique = Game.where(user_id: current_profile.id)
+    @unique_classes = unique.uniq.pluck(:my_class)
+    @last_game = Game.where(user_id: current_profile.id).last
   end
 
   def math_stat(my_class, opp_class, type)
-    all_games = Game.where(my_class: my_class, opp_class: opp_class, type_of_a_game: type).count
-    win_games = Game.where(my_class: my_class, opp_class: opp_class, type_of_a_game: type, result: 'win').count
+    all_games = Game.where(my_class: my_class, opp_class: opp_class, type_of_a_game: type, user_id: current_profile.id).count
+    win_games = Game.where(my_class: my_class, opp_class: opp_class, type_of_a_game: type, result: 'win', user_id: current_profile.id).count
     (win_games.to_f / all_games.to_f) * 100
   end
 end
