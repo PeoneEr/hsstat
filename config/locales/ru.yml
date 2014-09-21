@@ -11,6 +11,9 @@ ru:
   shaman: 'Шаман'
   win: Победа
   lose: Поражение
+  ranked: Ранкед
+  arena: Арена
+  casual: Простая
 
   activemodel:
     models:

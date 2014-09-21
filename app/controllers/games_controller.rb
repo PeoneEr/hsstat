@@ -1,6 +1,10 @@
 class GamesController < ApplicationController
   before_action :authenticate_profile!
 
+  def index
+    @games = Game.where(user_id: current_profile.id).order('id desc')
+  end
+
   def new
     @game = Game.new
   end

@@ -18,6 +18,11 @@
           <li>Поражений: <%= @games.where(result: :lose).count %></li>
           <li>Побед: <%= @games.where(result: :win).count %></li>
           <li>Всего игр: <%= @games.count %></li>
+          <% if controller_name == 'games' %>
+            <li><%= link_to 'Профиль', profiles_path %></li>
+          <% else %>
+            <li><%= link_to 'Все игры', games_path %></li>
+          <% end %>
         </ul>
       </div>
     <% end %>
