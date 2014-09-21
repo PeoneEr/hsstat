@@ -17,10 +17,10 @@
     </div>
     <div class="info">
       <ul>
-        <li>Всего игр: <%= Game.where(my_class: "#{my_class}").count %></li>
-        <li>Побед: <%= Game.where(my_class: "#{my_class}", result: :win).count %></li>
-        <li>Поражений: <%= Game.where(my_class: "#{my_class}", result: :lose).count %></li>
-        <li>Показатель: <%= percentages(Game.where(my_class: "#{my_class}", result: :win).count.to_f, Game.where(my_class: "#{my_class}").count.to_f) %></li>
+        <li>Всего игр: <%= Game.where(my_class: "#{my_class}", user_id: current_profile.id).count %></li>
+        <li>Побед: <%= Game.where(my_class: "#{my_class}", result: :win, user_id: current_profile.id).count %></li>
+        <li>Поражений: <%= Game.where(my_class: "#{my_class}", result: :lose, user_id: current_profile.id).count %></li>
+        <li>Показатель: <%= percentages(Game.where(my_class: "#{my_class}", result: :win, user_id: current_profile.id).count.to_f, Game.where(my_class: "#{my_class}", user_id: current_profile.id).count.to_f) %></li>
       </ul>
     </div>
   </div>
