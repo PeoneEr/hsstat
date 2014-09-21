@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <th>Мой класс</th>
+    <th>Класс противника</th>
+    <th>Тип</th>
+    <th>Результат</th>
+    <th>Винрейт</th>
+    <th>Дата</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= link_to t(game.my_class), games_my_class_games_path(game.my_class) %></td>
+        <td><%= t(game.opp_class) %></td>
+        <td><%= t(game.type_of_a_game) %></td>
+        <td><%= t(game.result) %></td>
+        <td><%= percentages_for_stat(math_stat(game.my_class, game.opp_class, game.type_of_a_game)) %></td>
+        <td><%= time_ago_in_words(game.created_at) %> назад</td>
+        <td><%= link_to 'Удалить', game_path(game), method: :delete, data: { confirm: 'Точно удалить?'  } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

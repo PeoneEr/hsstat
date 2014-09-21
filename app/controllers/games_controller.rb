@@ -18,9 +18,13 @@ class GamesController < ApplicationController
     end
   end
 
+  def my_class
+    @games = Game.where(my_class: params[:my_class], user_id: current_profile.id)
+  end
+
   def destroy
     Game.find(params[:id]).destroy
-    redirect_to profiles_path
+    redirect_to games_path
   end
 
   private
