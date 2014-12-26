@@ -1,0 +1,27 @@
+<%= simple_form_for @game do |f| %>
+  <%= f.input :my_class, selected: Game.where(user_id: current_profile.id).last.my_class %>
+  <%= f.input :opp_class, selected: Game.where(user_id: current_profile.id).last.opp_class %>
+  <%= f.input :type_of_a_game, as: :radio_buttons, checked: Game.where(user_id: current_profile.id).last.type_of_a_game %>
+  <%= f.input :result, as: :radio_buttons, checked: Game.where(user_id: current_profile.id).last.result %>
+  <%= f.submit 'Создать', class: 'btn btn-normal' %>
+<% end %>
+
+<div class="last_game">
+  Последняя игра:  <%= link_to I18n.t(@last_game.my_class), games_my_class_games_path(@last_game.my_class) %> против <%= I18n.t(@last_game.opp_class) %>а, результат: <%= I18n.t(@last_game.result) %>, <%= time_ago_in_words(@last_game.created_at) %> назад
+</div>
+
+<% @unique_classes.each do |my_class| %>
+  <div class="hero">
+    <div class="hero_title">
+      <%= link_to I18n.t(my_class), games_my_class_games_path(my_class) %>
+    </div>
+    <div class="info">
+      <ul>
+        <li>Всего игр: <%= Game.where(my_class: "#{my_class}", user_id: current_profile.id).count %></li>
+        <li>Побед: <%= Game.where(my_class: "#{my_class}", result: :win, user_id: current_profile.id).count %></li>
+        <li>Поражений: <%= Game.where(my_class: "#{my_class}", result: :lose, user_id: current_profile.id).count %></li>
+        <li>Показатель: <%= percentages(Game.where(my_class: "#{my_class}", result: :win, user_id: current_profile.id).count.to_f, Game.where(my_class: "#{my_class}", user_id: current_profile.id).count.to_f) %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

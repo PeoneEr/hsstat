@@ -1,0 +1,5 @@
+<% unless profile_signed_in? %>
+  <%= link_to 'Войти', new_profile_session_path %> или <%= link_to 'Зарегистрироваться', new_profile_registration_path %>
+<% end %>
+
+<%= render partial: 'table' %>

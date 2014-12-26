@@ -1,0 +1,65 @@
+ru:
+
+  mage: 'Маг'
+  rogue: 'Разбойник'
+  warrior: 'Воин'
+  druid: 'Друид'
+  warlock: 'Чернокнижник'
+  paladin: 'Паладин'
+  priest: 'Жрец'
+  hunter: 'Охотник'
+  shaman: 'Шаман'
+  win: Победа
+  lose: Поражение
+  ranked: Ранкед
+  arena: Арена
+  casual: Простая
+
+  activemodel:
+    models:
+      game: 'haha'
+    attributes:
+      game:
+        my_class:
+          rogue: 'Разбойник'
+
+  simple_form:
+    labels:
+      game:
+        my_class: 'Мой класс'
+        opp_class: 'Класс противника'
+        type_of_a_game: 'Тип игры'
+        result: 'Результат'
+
+  enumerize:
+    game:
+      my_class:
+        mage: 'Маг'
+        rogue: 'Разбойник'
+        warrior: 'Воин'
+        druid: 'Друид'
+        warlock: 'Чернокнижник'
+        paladin: 'Паладин'
+        priest: 'Жрец'
+        hunter: 'Охотник'
+        shaman: 'Шаман'
+
+      opp_class:
+        mage: 'Маг'
+        rogue: 'Разбойник'
+        warrior: 'Воин'
+        druid: 'Друид'
+        warlock: 'Чернокнижник'
+        paladin: 'Паладин'
+        priest: 'Жрец'
+        hunter: 'Охотник'
+        shaman: 'Шаман'
+
+      result:
+        win: 'Победа'
+        lose: 'Поражение'
+
+      type_of_a_game:
+        arena: 'Арена'
+        ranked: 'Ранкед'
+        casual: 'Простая'
