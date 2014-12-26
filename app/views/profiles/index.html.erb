@@ -3,7 +3,7 @@
   <%= f.input :opp_class, selected: Game.where(user_id: current_profile.id).last.opp_class %>
   <%= f.input :type_of_a_game, as: :radio_buttons, checked: Game.where(user_id: current_profile.id).last.type_of_a_game %>
   <%= f.input :result, as: :radio_buttons, checked: Game.where(user_id: current_profile.id).last.result %>
-  <%= f.submit 'Создать' %>
+  <%= f.submit 'Создать', class: 'btn btn-normal' %>
 <% end %>
 
 <div class="last_game">
