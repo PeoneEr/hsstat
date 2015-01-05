@@ -9,21 +9,25 @@
     width: 810px
     margin: 0 0 30px
 
-    li
-      float: right
-      margin: 5px 20px
+    ul
+      +clearfix
+
+      li
+        float: left
+        margin: 5px 5%
 
 a
   color: #06c
   text-decoration: none
 
 .btn
-  padding: 5px
   border: 1px solid #ccc
-  margin: 20px
+  margin: 10px 0
+  padding: 10px
 
   &:hover
     background: #ccc
+    cursor: pointer
 
 .simple_form
   abbr
@@ -40,3 +44,32 @@ table
     border: 1px solid #000
     border-collapse: collapse
     padding: 5px
+
+.fixed_left_menu
+  border: 1px solid #ccc
+  left: 20px
+  position: fixed
+  top: 20px
+  width: 200px
+
+  ul
+    li
+      font-size: 20px
+      margin: 5px
+      padding: 3px
+      text-align: center
+
+      &:hover
+        background-color: grey
+
+        a
+          color: white
+
+select, label, form
+  font-size: 20px
+
+label
+  margin: 0 10px 0
+
+.input
+  margin: 10px 0

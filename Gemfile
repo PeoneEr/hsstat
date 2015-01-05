@@ -9,6 +9,7 @@ group :default do
   gem 'jbuilder'
   gem 'jquery-rails'
   gem 'jquery-ui-sass-rails'
+  gem 'kaminari'
   gem 'pg'
   gem 'rails'
   gem 'russian'

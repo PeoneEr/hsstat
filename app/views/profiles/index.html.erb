@@ -7,7 +7,7 @@
 <% end %>
 
 <div class="last_game">
-  Последняя игра:  <%= link_to I18n.t(@last_game.my_class), games_my_class_games_path(@last_game.my_class) %> против <%= I18n.t(@last_game.opp_class) %>а, результат: <%= I18n.t(@last_game.result) %>, <%= time_ago_in_words(@last_game.created_at) %> назад
+  Последняя игра:  <%= link_to I18n.t(@last_game.my_class), games_my_class_games_path(@last_game.my_class) %> против <%= I18n.t(@last_game.opp_class) %>а, результат: <%= I18n.t(@last_game.result) %>, режим: <%= I18n.t(@last_game.type_of_a_game) %>, <%= time_ago_in_words(@last_game.created_at) %> назад
 </div>
 
 <% @unique_classes.each do |my_class| %>

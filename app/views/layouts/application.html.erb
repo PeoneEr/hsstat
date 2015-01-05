@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Hsstat</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-  <%= favicon_link_tag 'favicon.ico' %>
-</head>
-<body>
-  <div class="wrapper">
-    <% if profile_signed_in? && @games.present? %>
-      <div class="menu">
+  <head>
+    <title>Статистика игр в HeartStone. <%= "Пользователь: #{current_profile.email}" if profile_signed_in? %></title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+  </head>
+  <body>
+    <div class="wrapper">
+
+      <div class='fixed_left_menu'>
         <ul>
-          <li><%= link_to 'Выход', destroy_profile_session_path, method: :delete, data: { confirm: 'Точно?' } %></li>
-          <li>Общий показатель: <%= percentages(@games.where(result: :win).count, @games.count.to_f) %></li>
-          <li>Поражений: <%= @games.where(result: :lose).count %></li>
-          <li>Побед: <%= @games.where(result: :win).count %></li>
-          <li>Всего игр: <%= @games.count %></li>
           <% if controller_name == 'games' %>
             <li><%= link_to 'Профиль', profiles_path %></li>
           <% else %>
             <li><%= link_to 'Все игры', games_path %></li>
           <% end %>
+          <li><%= link_to 'Выход', destroy_profile_session_path, method: :delete, data: { confirm: 'Точно?' } %></li>
         </ul>
       </div>
-    <% end %>
-    <%= yield %>
-  </div>
 
-</body>
+      <% if profile_signed_in? && @games.present? %>
+        <div class="menu">
+          <ul>
+            <li>Общий показатель: <%= percentages(@games.where(result: :win).count, @games.count.to_f) %></li>
+            <li>Поражений: <%= @games.where(result: :lose).count %></li>
+            <li>Побед: <%= @games.where(result: :win).count %></li>
+            <li>Всего игр: <%= @games.count %></li>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+  </body>
 </html>

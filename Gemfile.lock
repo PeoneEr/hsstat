@@ -109,6 +109,9 @@ GEM
       jquery-ui-rails (= 4.0.3)
       railties (>= 3.1.0)
     json (1.8.1)
+    kaminari (0.15.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
@@ -168,8 +171,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    turbolinks (2.3.0)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -198,11 +199,11 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   jquery-ui-sass-rails
+  kaminari
   pg
   rails
   russian
   sass-rails (~> 4.0.3)
   simple_form
   spring
-  turbolinks
   uglifier
