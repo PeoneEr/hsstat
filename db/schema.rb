@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908150614) do
+ActiveRecord::Schema.define(version: 20150106105558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "arenas", force: true do |t|
+    t.string   "my_class"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "games", force: true do |t|
     t.string   "my_class"
@@ -25,6 +31,7 @@ ActiveRecord::Schema.define(version: 20140908150614) do
     t.string   "type_of_a_game"
     t.string   "stat"
     t.integer  "user_id"
+    t.text     "comment"
   end
 
   create_table "profiles", force: true do |t|

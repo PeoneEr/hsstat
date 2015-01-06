@@ -30,6 +30,7 @@ ru:
         opp_class: 'Класс противника'
         type_of_a_game: 'Тип игры'
         result: 'Результат'
+        comment: 'Комментарий'
 
   enumerize:
     game:

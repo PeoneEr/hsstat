@@ -13,11 +13,13 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(game_params.merge(user_id: current_profile.id))
-    if @game.save
-      redirect_to profiles_path
-    else
-      render 'new'
+    if current_profile
+      @game = Game.new(game_params.merge(user_id: current_profile.id))
+      if @game.save
+        redirect_to profiles_path
+      else
+        render 'new'
+      end
     end
   end
 
@@ -41,6 +43,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:my_class, :opp_class, :type_of_a_game, :result)
+    params.require(:game).permit(:my_class, :opp_class, :type_of_a_game, :result, :comment)
   end
 end
