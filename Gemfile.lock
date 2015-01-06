@@ -75,6 +75,9 @@ GEM
       sass (~> 3.2.19)
     compass-rails (2.0.0)
       compass (>= 0.12.2)
+    configliere (0.4.22)
+      highline (= 1.5.2)
+      multi_json (~> 1.10.1)
     devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -89,6 +92,7 @@ GEM
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    highline (1.5.2)
     hike (1.2.3)
     hirb (0.7.2)
     i18n (0.7.0)
@@ -192,6 +196,7 @@ DEPENDENCIES
   capistrano-rvm!
   coffee-rails
   compass-rails
+  configliere
   devise
   enumerize
   hirb

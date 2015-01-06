@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 group :default do
   gem 'coffee-rails'
   gem 'compass-rails'
+  gem 'configliere'
   gem 'devise'
   gem 'enumerize'
   gem 'inherited_resources'
