@@ -23,6 +23,10 @@ class GamesController < ApplicationController
     end
   end
 
+  def edit
+    @game = Game.find(params[:id])
+  end
+
   def my_class
     @games = Game.where(my_class: params[:my_class], user_id: current_profile.id).order('id desc').page(page).per(per)
   end
@@ -43,6 +47,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:my_class, :opp_class, :type_of_a_game, :result, :comment)
+    params.require(:game).permit(:my_class, :opp_class, :type_of_a_game, :result, :comment, :screenshot)
   end
 end
