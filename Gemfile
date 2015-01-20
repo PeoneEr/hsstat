@@ -11,6 +11,7 @@ group :default do
   gem 'jquery-rails'
   gem 'jquery-ui-sass-rails'
   gem 'kaminari'
+  gem 'newrelic_rpm'
   gem 'paperclip'
   gem 'pg'
   gem 'rails'

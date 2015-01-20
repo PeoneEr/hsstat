@@ -18,7 +18,7 @@ set :db_remote_clean, true
 
 set :user, 'deploy'
 
-set :linked_files, %w{config/database.yml config/settings.yml}
+set :linked_files, %w{config/database.yml config/settings.yml config/newrelic.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do
@@ -31,6 +31,7 @@ namespace :deploy do
   end
 
   after :publishing, 'deploy:restart'
+  after "deploy:updated", "newrelic:notice_deployment"
   after :finishing, 'deploy:cleanup'
   after "deploy", "deploy:migrate"
 
