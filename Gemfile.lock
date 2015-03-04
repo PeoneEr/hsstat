@@ -1,18 +1,3 @@
-GIT
-  remote: git://github.com/capistrano/rvm.git
-  revision: dc35ec5e7a74a422250bd6ff5e8885c8b742d0e5
-  specs:
-    capistrano-rvm (0.1.1)
-      capistrano (~> 3.0)
-      sshkit (~> 1.2)
-
-GIT
-  remote: git://github.com/mydrive/capistrano-deploytags.git
-  revision: 4fa2026b00a9c4e4f5eaa9fd7a7018e820497314
-  specs:
-    capistrano-deploytags (1.0.0)
-      capistrano (>= 3.2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -57,9 +42,16 @@ GEM
       sshkit (~> 1.2)
     capistrano-db-tasks (0.3)
       capistrano (>= 3.0.0)
+    capistrano-deploytags (1.0.2)
+      capistrano (>= 3.2.0)
+    capistrano-passenger (0.0.2)
+      capistrano (~> 3.0)
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     chunky_png (1.3.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -204,9 +196,10 @@ DEPENDENCIES
   capistrano
   capistrano-bundler
   capistrano-db-tasks
-  capistrano-deploytags (~> 1.0.0)!
+  capistrano-deploytags
+  capistrano-passenger
   capistrano-rails
-  capistrano-rvm!
+  capistrano-rvm
   coffee-rails
   compass-rails
   configliere
