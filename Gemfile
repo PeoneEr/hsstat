@@ -18,6 +18,7 @@ group :default do
   gem 'russian'
   gem 'sass-rails', '~> 4.0.3'
   gem 'simple_form'
+  gem 'header'
   gem 'uglifier'
 end
 
@@ -27,8 +28,9 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano-rvm', github: "capistrano/rvm"
-  gem 'capistrano-deploytags', '~> 1.0.0', require: false, github: 'mydrive/capistrano-deploytags'
+  gem 'capistrano-rvm'
+  gem 'capistrano-deploytags'
+  gem 'capistrano-passenger'
   gem "capistrano-db-tasks", require: false
   gem 'hirb'
 end

@@ -16,12 +16,6 @@ ActiveRecord::Schema.define(version: 20150108095229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "arenas", force: true do |t|
-    t.string   "my_class"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "games", force: true do |t|
     t.string   "my_class"
     t.string   "opp_class"
