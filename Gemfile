@@ -15,6 +15,7 @@ group :default do
   gem 'paperclip'
   gem 'pg'
   gem 'rails'
+  gem 'ffi', '=1.9.6'
   gem 'russian'
   gem 'sass-rails', '~> 4.0.3'
   gem 'simple_form'
