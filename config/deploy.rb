@@ -9,14 +9,13 @@ set :repo_url, 'git@github.com:PeoneEr/hsstat.git'
 set :deploy_to, '/home/deploy/hsstat'
 
 set :rails_env, "production"
-#
-#         # if you want to remove the local dump file after loading
 set :db_local_clean, true
-#
-#                 # if you want to remove the dump file from the server after downloading
 set :db_remote_clean, true
 
 set :user, 'deploy'
+
+require 'net/ssh/proxy/command'
+set :ssh_options, proxy: Net::SSH::Proxy::Command.new('ssh home -W %h:%p')
 
 set :linked_files, %w{config/database.yml config/settings.yml config/newrelic.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
