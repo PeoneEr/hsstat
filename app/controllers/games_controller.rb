@@ -1,8 +1,7 @@
 class GamesController < ApplicationController
   before_action :authenticate_profile!
 
-  helper_method :page
-  helper_method :per
+  helper_method :page, :per
 
   def index
     @games = Game.where(user_id: current_profile.id).order('id desc').page(page).per(per)
@@ -16,7 +15,7 @@ class GamesController < ApplicationController
     if current_profile
       @game = Game.new(game_params.merge(user_id: current_profile.id))
       if @game.save
-        redirect_to profiles_path
+        render nothing: true, status: 200 and return
       else
         render 'new'
       end

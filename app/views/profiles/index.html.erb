@@ -1,7 +1,11 @@
-<%= render 'commons/form' %>
+<div class='form js-form'>
+  <%= render 'commons/form' %>
+</div>
 
-<div class="last_game">
-  Последняя игра:  <%= link_to I18n.t(@last_game.my_class), games_my_class_games_path(@last_game.my_class) %> против <b><%= I18n.t(@last_game.opp_class) %>а</b>, результат: <b><%= I18n.t(@last_game.result) %></b>, режим: <b><%= I18n.t(@last_game.type_of_a_game) %></b>, <%= time_ago_in_words(@last_game.created_at) %> назад
+<div class='last_game'>
+  <% if @last_game %>
+    Последняя игра:  <%= link_to I18n.t(@last_game.my_class), games_my_class_games_path(@last_game.my_class) %> против <b><%= I18n.t(@last_game.opp_class) %>а</b>, результат: <b><%= I18n.t(@last_game.result) %></b>, режим: <b><%= I18n.t(@last_game.type_of_a_game) %></b>, <%= time_ago_in_words(@last_game.created_at) %> назад
+  <% end %>
 </div>
 
 <% @unique_classes.each do |my_class| %>
