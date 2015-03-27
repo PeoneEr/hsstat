@@ -89,7 +89,7 @@ GEM
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
-    header (0.0.6)
+    header (0.0.7)
       compass-rails
       sass-rails (>= 3.2)
     highline (1.5.2)
