@@ -5,5 +5,5 @@
   <%= f.input :result, as: :radio_buttons, checked: Game.where(user_id: current_profile.id).last.try(:result) %>
   <%= f.input :comment, as: :text, input_html: { size: '40x10' } %>
   <%= f.input :screenshot %>
-  <%= f.submit 'Создать', class: 'btn btn-normal' %>
+  <%= f.submit 'Создать', class: 'btn btn-normal' %> <%= image_tag 'loading.gif', :class => 'loading js-loading' %> <%= image_tag 'ok.gif', :class => 'ok js-ok' %>
 <% end %>
