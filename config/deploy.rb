@@ -17,6 +17,15 @@ set :user, 'deploy'
 require 'net/ssh/proxy/command'
 set :ssh_options, proxy: Net::SSH::Proxy::Command.new('ssh home -W %h:%p')
 
+set :passenger_roles, :app
+set :passenger_restart_runner, :sequence
+set :passenger_restart_wait, 5
+set :passenger_restart_limit, 2
+set :passenger_restart_with_sudo, true
+set :passenger_environment_variables, {}
+set :passenger_restart_command, 'passenger-config restart-app'
+set :passenger_restart_options, -> { "#{deploy_to} --ignore-app-not-running"   }
+
 set :linked_files, %w{config/database.yml config/settings.yml config/newrelic.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
