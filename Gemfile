@@ -13,6 +13,7 @@ group :default do
   gem 'kaminari'
   gem 'newrelic_rpm'
   gem 'paperclip'
+  gem 'paperclip-elvfs'
   gem 'pg'
   gem 'rails'
   gem 'ffi', '=1.9.6'

@@ -7,6 +7,8 @@ class Game < ActiveRecord::Base
 
   validates_presence_of :my_class, :opp_class, :result, :type_of_a_game
 
-   has_attached_file :screenshot, :styles => { :medium => "500x500>", :thumb => "300x300>"  }, :default_url => "/images/:style/missing.png"
+  has_attached_file :screenshot, :styles => { :medium => "500x500>", :thumb => "300x300>"  },
+    :default_url => "/images/:style/missing.png", :storage => :elvfs, :elvfs_url => Settings['storage.url']
+
    validates_attachment_content_type :screenshot, :content_type => /\Aimage\/.*\Z/
 end

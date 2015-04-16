@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150108095229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "games", force: true do |t|
+  create_table "games", force: :cascade do |t|
     t.string   "my_class"
     t.string   "opp_class"
     t.string   "result"
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20150108095229) do
     t.string   "screenshot_content_type"
     t.integer  "screenshot_file_size"
     t.datetime "screenshot_updated_at"
+    t.text     "screenshot_url"
   end
 
-  create_table "profiles", force: true do |t|
+  create_table "profiles", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

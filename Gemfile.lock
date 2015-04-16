@@ -83,6 +83,7 @@ GEM
     configliere (0.4.22)
       highline (= 1.5.2)
       multi_json (~> 1.10.1)
+    curb (0.8.6)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -151,6 +152,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip-elvfs (0.0.5.2)
+      curb
+      paperclip
     pg (0.18.1)
     rack (1.6.0)
     rack-test (0.6.3)
@@ -245,6 +249,7 @@ DEPENDENCIES
   kaminari
   newrelic_rpm
   paperclip
+  paperclip-elvfs
   pg
   rails
   russian

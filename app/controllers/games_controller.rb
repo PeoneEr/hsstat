@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :authenticate_profile!
+  skip_before_filter :verify_authenticity_token
 
   helper_method :page, :per
 
@@ -15,7 +16,9 @@ class GamesController < ApplicationController
     if current_profile
       @game = Game.new(game_params.merge(user_id: current_profile.id))
       if @game.save
-        render nothing: true, status: 200 and return
+        render nothing: true, status: 200 and return if request.xhr?
+
+        redirect_to root_path
       else
         render 'new'
       end
