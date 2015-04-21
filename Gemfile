@@ -22,6 +22,8 @@ group :default do
   gem 'simple_form'
   gem 'header'
   gem 'uglifier'
+  gem 'sunspot_rails'
+  gem 'sunspot_solr'
 end
 
 group :development do
@@ -36,8 +38,6 @@ group :development do
   gem 'capistrano-rvm'
   gem 'hirb'
   gem 'spring'
-  gem 'sunspot_rails'
-  gem 'sunspot_solr'
 end
 
 group :development, :test do
