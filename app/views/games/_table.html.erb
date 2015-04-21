@@ -10,7 +10,7 @@
     <th></th>
   </thead>
   <tbody>
-    <% @games.each do |game| %>
+    <% @games_for_index.each do |game| %>
       <tr>
         <td><%= link_to t(game.my_class), games_my_class_games_path(game.my_class) %></td>
         <td><%= t(game.opp_class) %></td>
@@ -28,4 +28,4 @@
   </tbody>
 </table>
 
-<%= paginate @games %>
+<%= paginate @games_for_index %>

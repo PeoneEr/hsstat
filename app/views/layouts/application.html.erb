@@ -24,9 +24,9 @@
       <% if profile_signed_in? && @games.present? %>
         <div class="menu">
           <ul>
-            <li>Общий показатель: <%= percentages(@games.where(result: :win).count, @games.count.to_f) %></li>
-            <li>Поражений: <%= @games.where(result: :lose).count %></li>
-            <li>Побед: <%= @games.where(result: :win).count %></li>
+            <li>Общий показатель: <%= percentages(win_stat, @games.count.to_f) %></li>
+            <li>Поражений: <%= lose_stat %></li>
+            <li>Побед: <%= win_stat %></li>
             <li>Всего игр: <%= @games.count %></li>
           </ul>
         </div>

@@ -5,7 +5,8 @@ class GamesController < ApplicationController
   helper_method :page, :per
 
   def index
-    @games = Game.where(user_id: current_profile.id).order('id desc').page(page).per(per)
+    @games = current_profile.games.search { paginate page: 1, per_page: Game.count; order_by(:id, :desc) }.results
+    @games_for_index = current_profile.games.search { paginate page: page, per_page: per; order_by(:id, :desc) }.results
   end
 
   def new
@@ -14,8 +15,8 @@ class GamesController < ApplicationController
 
   def create
     if current_profile
-      @game = Game.new(game_params.merge(user_id: current_profile.id))
-      if @game.save
+      @game = current_profile.games.create(game_params) #Game.new(game_params.merge(user_id: current_profile.id))
+      if @game
         render nothing: true, status: 200 and return if request.xhr?
 
         redirect_to root_path
@@ -26,9 +27,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    @game = Game.find(params[:id])
-    @game.update! game_params
-    redirect_to games_path
+    Game.find(params[:id]).update(game_params) and redirect_to games_path
   end
 
   def edit

@@ -26,13 +26,20 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'spring'
+  gem 'brakeman'
   gem 'capistrano'
   gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rvm'
+  gem 'capistrano-db-tasks', require: false
   gem 'capistrano-deploytags'
   gem 'capistrano-passenger'
-  gem "capistrano-db-tasks", require: false
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
   gem 'hirb'
+  gem 'spring'
+  gem 'sunspot_rails'
+  gem 'sunspot_solr'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
 end
