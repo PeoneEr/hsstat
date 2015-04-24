@@ -24,6 +24,7 @@ group :default do
   gem 'uglifier'
   gem 'sunspot_rails'
   gem 'sunspot_solr'
+  gem 'progress_bar'
 end
 
 group :development do
