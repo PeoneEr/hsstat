@@ -9,10 +9,10 @@ production:
 
 development:
   solr:
-    hostname: localhost
-    port: 8982
+    hostname: 192.168.0.105
+    port: 8983
     log_level: INFO
-    path: /solr/hsstat_development
+    path: /solr/bvm
 
 test:
   solr:
